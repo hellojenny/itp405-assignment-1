@@ -22,6 +22,10 @@ $like = '%' . $_GET['title'] . '%';
 $statement->bindParam(1, $like);
 $statement->execute();
 $dvds = $statement->fetchAll(PDO::FETCH_OBJ);
+
+if (empty($dvds)) {
+    echo "<h2>Nothing was found. <a href='/'>Return to search?</a></h2>";
+}
 ?>
 
 <ul>
